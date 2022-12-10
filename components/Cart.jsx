@@ -1,5 +1,6 @@
 // pages/index.js
 import { useUser } from '@auth0/nextjs-auth0/client';
+import Link from 'next/link';
 import Cartlogin from './Cartlogin';
 
 
@@ -14,11 +15,11 @@ export default function Index() {
       <div>
         Welcome {user.name}! 
         < Cartlogin />
-        <a href="/api/auth/logout">Logout</a>
+        <Link href="/api/auth/logout">Logout</Link>
 
       </div>
     );
   }
 
-  return <a href="/api/auth/login">Login</a>;
+  return <Link href="/api/auth/login">Login</Link>;
 }
