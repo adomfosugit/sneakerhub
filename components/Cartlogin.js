@@ -8,15 +8,17 @@ import { useUser } from '@auth0/nextjs-auth0/client';
 import { useStateContext } from '../context/StateContext';
 import { urlFor } from '../lib/client';
 import { usePaystackPayment } from 'react-paystack';
-import emailjs from "@emailjs/browser";
+import ContactUs from './ContactUs';
+//import Cartmessage from './Cartmessage';
+//import emailjs from "@emailjs/browser";
 
 
 
 const Cartlogin = () => {
   const cartRef = useRef();
   const { user } = useUser();
-  const form = useRef()
-  const sendEmail = (e) => {
+  //const form = useRef()
+  {/*const sendEmail = (e) => {
     e.preventDefault();
 
     emailjs
@@ -34,8 +36,8 @@ const Cartlogin = () => {
           alert(error.text);
         }
       );
-  };
-  const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuanitity, onRemove } = useStateContext();
+  }; */}
+  const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuanitity, onRemove,setCont, cont} = useStateContext();
   const config = {
     reference: (new Date()).getTime(),
     username: `${user.name}`,
@@ -135,48 +137,17 @@ const PaystackHookExample = () => {
               <h3>Subtotal:</h3>
               <h3> GHC {totalPrice}</h3>
             </div>
-            <form ref={form} onSubmit={sendEmail}>
-      <label>Name</label>
-      <br />
-      <input type="text" name="user_name" />
-      <br />
-      <label>Email</label>
-      <br />
-      <input type="email" name="email" />
-      <br />
-      <label> Summary</label>
-      <br />
-         
-         {/* <Cartmessage /> */}
-          
-         <div>
-         <div >
-          {cartItems.length >= 1 && cartItems.map((item) => (
-            <div className="product" key={item._id}>
-              <div >
-                <div >
-                  <ol>
-                  <h5>{item.name} : {totalQuantities}</h5>
-                  </ol>
-                  
-                </div>
-                
-              </div>
-            </div>
-          
-          ))}
-        </div>
-    </div>
-    <label>Paste Cart Summary in the field below</label>
-      <br />
-      <input type="email" name="message" />
-    
-         
+        <div className='btn-container'>
+            <button
+                type="button"
+                onClick={() => setCont(true)}
+                className="btn"
+              >
+                Please Confirm Order
+        </button> 
+          </div>
         
-        
-      <br />
-      <input type="submit" value="Send" />
-    </form>
+             {cont && <ContactUs />}     
             
               
               <PaystackHookExample />

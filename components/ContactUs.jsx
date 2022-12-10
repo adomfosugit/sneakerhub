@@ -1,0 +1,111 @@
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { useStateContext } from '../context/StateContext';
+
+const ContactUs = () => {
+    const {  totalQuantities, cartItems, cont, setCont} = useStateContext();
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_a4ti7od",
+        "template_i36ys5d",
+        form.current,
+        "qKcs0-60JEaHBzgTv"
+      )
+      .then(
+        (result) => {
+          alert(result.text);
+        },
+        (error) => {
+          alert(error.text);
+        }
+      );
+  };
+
+  return (
+    <div>
+         <div>
+        <div class = 'formcontainer'>
+	<form ref={form} onSubmit={sendEmail}>
+       <div class = 'row'> 
+        <div class = 'col-75'>
+      <label>Name</label>
+      
+  
+      <input type="text" name="user_name" placeholder = 'Your Name '/>
+      </div>
+      </div>
+      <div class = 'row'> 
+        <div class = 'col-75'>
+      <label>Email</label>
+      
+  
+      <input type="text" name="email" placeholder = 'Email '/>
+      </div>
+      </div>
+      
+      <div class = 'row'> 
+        <div class = 'col-75'>
+      <label>Phone</label>
+      
+  
+      <input type="text" name="message" placeholder = ' Phone '/>
+      </div>
+      </div>
+      <div class = 'row'> 
+        <div class = 'col-75'>
+      <label>Address</label>
+      
+  
+      <input type="text" name="message" placeholder = 'Address '/>
+      </div>
+      </div>
+      
+           
+      <label> Summary</label>
+      <br />
+         
+         {/* <Cartmessage /> */}
+          
+         <div >
+         <div >
+          {cartItems.length >= 1 && cartItems.map((item) => (
+            <div className="product" key={item._id}>
+              <div >
+                <div >
+                  <ol>
+                  <h5>{item.name} : {totalQuantities}</h5>
+                  </ol>
+                  
+                </div>
+                
+              </div>
+            </div>
+          
+          ))}
+        </div>
+    </div>
+    <div class = 'row'> 
+        <div class = 'col-75'>
+      <label>Paste Your cart Summary Below</label>
+      
+  
+      <input type="text" name="message" placeholder = 'Your Cart '/>
+      </div>
+      </div>
+      <br/>
+      
+      <input onClick={() => setCont(false)} type="submit" value="Cancel" />
+      <input type="submit" value="Confirm Order" />
+    </form>
+</div>
+    </div>
+    </div>
+  );
+};
+
+export default ContactUs
