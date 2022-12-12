@@ -4,6 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import { urlFor } from '../lib/client'
 
+
 const Herobanner = ({herobanner}) => {
   return (
     <div className='hero-banner-container'>
@@ -14,7 +15,7 @@ const Herobanner = ({herobanner}) => {
             <h3 className='text-gradient'>
                 {herobanner.midText}
             </h3>
-           
+           <Image />
             
             <img src = {urlFor(herobanner.image)}  alt ='sneakers' className='hero-banner-image' />
             <div>
