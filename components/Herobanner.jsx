@@ -1,3 +1,5 @@
+/* eslint no-use-before-define: 0 */  // --> OFF
+
 import React from 'react'
 import Link from 'next/link'
 import { urlFor } from '../lib/client'
@@ -14,7 +16,7 @@ const Herobanner = ({herobanner}) => {
             </h3>
            
             
-            <img src = {urlFor(herobanner.image)} alt ='sneakers' className='hero-banner-image' />
+            <img src = {urlFor(herobanner.image)}  alt ='sneakers' className='hero-banner-image' />
             <div>
                 {/*<Link href = {`/product/${herobanner.product}`}>
                 
