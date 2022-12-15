@@ -16,12 +16,12 @@ const ProductDetails
 
                 <div className='image-container'>
                     <img src= {urlFor(image && image[index])}
-                    className= 'product-detail-image'/>
+                     alt= 'a' className= 'product-detail-image'/>
 
                 </div>
                  <div className='small-images-container'>
                     {image?.map((item, i) => (
-                        <img 
+                        <img  alt= 'a'
                         src= {urlFor(item)}
                         className= {i === index ? 'small-image selected-image':
                         'small-image'
