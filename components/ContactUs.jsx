@@ -33,7 +33,7 @@ const ContactUs = () => {
 	<form ref={form} onSubmit={sendEmail}>
        <div class = 'row'> 
         <div class = 'col-75'>
-      <label>Name</label>
+      
       
   
       <input type="text" name="user_name" placeholder = 'Your Name ' required/>
@@ -41,7 +41,7 @@ const ContactUs = () => {
       </div>
       <div class = 'row'> 
         <div class = 'col-75'>
-      <label>Email</label>
+      
       
   
       <input type="text" name="email" placeholder = 'Email ' required/>
@@ -50,7 +50,7 @@ const ContactUs = () => {
       
       <div class = 'row'> 
         <div class = 'col-75'>
-      <label>Phone</label>
+      
       
   
       <input type="text" name="message" placeholder = ' Phone ' required/>
@@ -58,7 +58,7 @@ const ContactUs = () => {
       </div>
       <div class = 'row'> 
         <div class = 'col-75'>
-      <label>Address</label>
+      
       
   
       <input type="text" name="message" placeholder = 'Address ' required/>
