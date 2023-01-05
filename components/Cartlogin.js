@@ -1,6 +1,6 @@
 /* eslint no-use-before-define: 0 */  // --> OFF
 
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Link from 'next/link';
 import { AiOutlineMinus, AiOutlinePlus, AiOutlineLeft, AiOutlineShopping } from 'react-icons/ai';
 import { TiDeleteOutline } from 'react-icons/ti';
@@ -19,6 +19,10 @@ import ContactUs from './ContactUs';
 const Cartlogin = () => {
   const cartRef = useRef();
   const { user } = useUser();
+  const [showPaystack, setShowPaystack] = useState(false);
+    const handleConfirmClick = () => {
+      setShowPaystack(true);
+    }
   //const form = useRef()
   {/*const sendEmail = (e) => {
     e.preventDefault();
@@ -142,7 +146,10 @@ const PaystackHookExample = () => {
         <div className='btn-container'>
             <button
                 type="button"
-                onClick={() => setCont(true)}
+                 onClick={() => {
+                  setCont(true)
+                  handleConfirmClick()
+                }}
                 className="btn"
               >
                 Please Confirm Order
@@ -151,8 +158,8 @@ const PaystackHookExample = () => {
         
              {cont && <ContactUs />}     
             
+               {showPaystack?<PaystackHookExample /> : null}
               
-              <PaystackHookExample />
               
             
           </div>
