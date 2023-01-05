@@ -18,7 +18,7 @@ const ContactUs = () => {
       )
       .then(
         (result) => {
-          alert(result.text);
+          alert('Order Received...Proceed to Payment');
         },
         (error) => {
           alert(error.text);
