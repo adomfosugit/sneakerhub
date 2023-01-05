@@ -36,7 +36,7 @@ const ContactUs = () => {
       <label>Name</label>
       
   
-      <input type="text" name="user_name" placeholder = 'Your Name '/>
+      <input type="text" name="user_name" placeholder = 'Your Name ' required/>
       </div>
       </div>
       <div class = 'row'> 
@@ -44,7 +44,7 @@ const ContactUs = () => {
       <label>Email</label>
       
   
-      <input type="text" name="email" placeholder = 'Email '/>
+      <input type="text" name="email" placeholder = 'Email ' required/>
       </div>
       </div>
       
@@ -53,7 +53,7 @@ const ContactUs = () => {
       <label>Phone</label>
       
   
-      <input type="text" name="message" placeholder = ' Phone '/>
+      <input type="text" name="message" placeholder = ' Phone ' required/>
       </div>
       </div>
       <div class = 'row'> 
@@ -61,7 +61,7 @@ const ContactUs = () => {
       <label>Address</label>
       
   
-      <input type="text" name="message" placeholder = 'Address '/>
+      <input type="text" name="message" placeholder = 'Address ' required/>
       </div>
       </div>
       
@@ -94,13 +94,13 @@ const ContactUs = () => {
       <label>Paste Your cart Summary Below</label>
       
   
-      <input type="text" name="message" placeholder = 'Your Cart '/>
+      <input type="text" name="message" placeholder = 'Your Cart ' required/>
       </div>
       </div>
       <br/>
-      
-      <input onClick={() => setCont(false)} type="submit" value="Cancel" />
       <input type="submit" value="Confirm Order" />
+      <input onClick={() => setCont(false)} type="submit" value="Cancel" />
+      
     </form>
 </div>
     </div>
